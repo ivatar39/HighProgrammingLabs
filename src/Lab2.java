@@ -42,7 +42,7 @@ public class Lab2 {
     }
 
     public static void main(String[] args) {
-        System.out.println("Лабораторная №1. Вариант  №41");
+        System.out.println("Лабораторная №2. Вариант  №41");
         System.out.println("Таранов Иван Андрревич, 19-ИЭ-2.2\n");
 
         System.out.println("Задание: max(a, b) / min(b, c)");
@@ -58,6 +58,7 @@ public class Lab2 {
         final float minBC = Math.min(b, c);
         if (minBC == 0) {
             System.out.println("На ноль делить нельзя!");
+            main(null);
         } else {
             final float result = maxAB / minBC;
             System.out.println("Результат: " + result);
