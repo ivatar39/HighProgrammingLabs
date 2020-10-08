@@ -21,7 +21,6 @@ public class Lab3 {
                         System.out.println("Ошибка! Вне допустимого диапазона значения");
                     }
                 } catch (Exception e) {
-                    System.out.println(e.toString());
                     System.out.println("Ошибка! Некорректный ввод");
                 }
             } else {
