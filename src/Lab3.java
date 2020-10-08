@@ -37,10 +37,33 @@ public class Lab3 {
 
         for (int column = 0; column < columns; column++) {
             for (int row = 0; row < rows; row++) {
-                matrix[row][column] = (-100 + random.nextDouble() * 100);
+                final int integerPart = -100 + random.nextInt(200);
+                final double fractionalPart = random.nextInt(100) / 100.0;
+                matrix[row][column] = Math.floor((integerPart + fractionalPart) * 100) / 100;
             }
         }
         return matrix;
+    }
+
+    private static void printMatrix(double[][] matrix) {
+        for (double[] row : matrix) {
+            for (double element : row) {
+                System.out.print(String.format("%7s", element));
+            }
+            System.out.println();
+        }
+    }
+
+    private static double getOddElementsSumUnderSideDiagonal(double[][] matrix) {
+        double sum = 0;
+        final int length = matrix.length;
+        for(int i = 0; i < length; i++) {
+            final double element = matrix[length - (i + 1)][i];
+            if ((int)element % 2 == 0) {
+                sum += element;
+            }
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
@@ -53,11 +76,9 @@ public class Lab3 {
         final int N = getIntFromInput(scanner);
 
         double[][] matrix = generateRandomMatrix(N, N);
-        for (double[] row : matrix) {
-            for (double element : row) {
-                System.out.print(element + " ");
-            }
-            System.out.println();
-        }
+        printMatrix(matrix);
+
+        final double sum = getOddElementsSumUnderSideDiagonal(matrix);
+        System.out.println("Результат: " + sum);
     }
 }
