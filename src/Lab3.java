@@ -57,9 +57,11 @@ public class Lab3 {
         double sum = 0;
         final int length = matrix.length;
         for(int i = 1; i < length; i++) {
-            final double element = matrix[length - i][i];
-            if ((int)element % 2 == 0) {
-                sum += element;
+            for (int j = i; j < length; j++){
+                final double element = matrix[length - i][j];
+                if ((int)element % 2 == 0) {
+                    sum += element;
+                }
             }
         }
         return sum;
