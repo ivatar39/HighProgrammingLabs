@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Lab3 {
     private static int getIntFromInput(Scanner scanner) {
-        final String INPUT_REQUEST = "Введите размерность матрицы (целое число от 0 до 20):";
+        final String INPUT_REQUEST = "Введите размерность матрицы (целое число от 2 до 20):";
         int finalNumber = 0;
         boolean isValid = false;
 
@@ -14,7 +14,7 @@ public class Lab3 {
             if (!isSeveralArgs) {
                 try {
                     final int number = Integer.parseInt(line);
-                    if (number >= 0 && number <= 20) {
+                    if (number >= 2 && number <= 20) {
                         finalNumber = number;
                         isValid = true;
                     } else {
@@ -47,7 +47,7 @@ public class Lab3 {
     private static void printMatrix(double[][] matrix) {
         for (double[] row : matrix) {
             for (double element : row) {
-                System.out.print(String.format("%7s", element));
+                System.out.printf("%7s", element);
             }
             System.out.println();
         }
@@ -56,8 +56,8 @@ public class Lab3 {
     private static double getOddElementsSumUnderSideDiagonal(double[][] matrix) {
         double sum = 0;
         final int length = matrix.length;
-        for(int i = 0; i < length; i++) {
-            final double element = matrix[length - (i + 1)][i];
+        for(int i = 1; i < length; i++) {
+            final double element = matrix[length - i][i];
             if ((int)element % 2 == 0) {
                 sum += element;
             }
