@@ -18,29 +18,38 @@ public class Lab5 {
     }
 
     private static boolean runLab(Scanner scanner) {
-        final String menuDivider = "------------------------------------------------------";
+        final String menuDivider = "\n------------------------------------------------------\n";
         final String line = scanner.nextLine();
 
         if (!line.trim().contains(" ") && isInt(line)) {
-            System.out.println(menuDivider);
 
             int option = Integer.parseInt(line);
             final boolean rightRange = RUN_LAB2 <= option && option <= EXIT;
             if (rightRange) {
                 switch (option) {
                     case RUN_LAB2:
+                        System.out.println(menuDivider);
                         Lab2.main(new String[]{});
+                        System.out.println(menuDivider);
                         break;
                     case RUN_LAB3:
+                        System.out.println(menuDivider);
                         Lab3.main(new String[]{});
+                        System.out.println(menuDivider);
                         break;
                     case RUN_LAB4:
+                        System.out.println(menuDivider);
                         Lab4.main(new String[]{});
+                        System.out.println(menuDivider);
                         break;
                     case ABOUT_AUTHOR:
-                        System.out.println("s");
+                        System.out.println(menuDivider);
+                        System.out.println(AboutAuthor.info);
+                        System.out.println(menuDivider);
                         break;
                     case EXIT:
+                        System.out.println("Нажмите любую клавишу для завершения...");
+                        scanner.nextLine();
                         System.exit(0);
                         break;
                 }
@@ -53,10 +62,6 @@ public class Lab5 {
             return false;
         }
 
-    }
-
-    private static void printMenu() {
-        printMenu(null);
     }
 
     private static void printMenu(String errorMessage) {
@@ -89,6 +94,8 @@ public class Lab5 {
             final boolean isRunSuccessful = runLab(scanner);
             if (!isRunSuccessful) {
                 errorMessage = "Ошибка! Некорректный ввод";
+            } else {
+                errorMessage = null;
             }
         }
     }
